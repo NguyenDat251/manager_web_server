@@ -1,12 +1,9 @@
 'use strict'
 
-// const util = require('util')
-// const mysql = require('mysql')
 const db = require('../mysql')
 
 module.exports = {
     get: (req, res) => {
-        //let sql = 'SELECT M.*, P.name as ProjectName FROM member M, project P where M.projectID = P.id'
         let sql = 'SELECT M.*, P.name as ProjectName FROM member M left join project P on M.projectID = P.id'
         db.query(sql, (err, response) => {
             if (err) throw err
