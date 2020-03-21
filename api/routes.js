@@ -21,4 +21,7 @@ module.exports = function(app) {
     .get(projectCtrl.detail)
     .put(projectCtrl.update)
     .delete(projectCtrl.delete)
+
+    app.route('/project/members/:projectId')
+    .get(projectCtrl.listMember)
 };

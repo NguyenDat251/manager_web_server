@@ -19,16 +19,16 @@ module.exports = {
         })
     },
     detail: (req, res) => {
-        let sql = 'SELECT * FROM member WHERE projectID = ?'
+        let sql = 'SELECT * FROM project WHERE id = ?'
         db.query(sql, [req.params.projectId], (err, response) => {
-            console.log(req.params.projectID)
+            console.log(req.params.projectId)
             if (err) console.log(err)
-            res.json(response)
+            res.json(response[0])
         })
     },
     update: (req, res) => {
         let data = req.body;
-        let projectID = req.params.projectID;
+        let projectId = req.params.projectId;
         let sql = 'UPDATE project SET ? WHERE id = ?'
         db.query(sql, [data, projectId], (err, response) => {
             if (err) console.log(err)
@@ -40,6 +40,14 @@ module.exports = {
         db.query(sql, [req.params.memberId], (err, response) => {
             if (err) throw err
             res.json({message: 'Delete success!'})
+        })
+    },
+    listMember: (req, res) => {
+        let sql = 'SELECT * FROM member WHERE projectID = ?'
+        db.query(sql, [req.params.projectId], (err, response) => {
+            console.log(req.params.projectId)
+            if (err) console.log(err)
+            res.json(response)
         })
     }
 }
