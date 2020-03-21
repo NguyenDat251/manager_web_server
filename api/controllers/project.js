@@ -20,7 +20,6 @@ module.exports = {
     },
     detail: (req, res) => {
         let sql = 'SELECT * FROM member WHERE projectID = ?'
-        //let sql = 'SELECT * FROM member WHERE projectID =  1'
         db.query(sql, [req.params.projectId], (err, response) => {
             console.log(req.params.projectID)
             if (err) console.log(err)
@@ -36,4 +35,11 @@ module.exports = {
             res.json({message: 'Update success!'})
         })
     },
+    delete: (req, res) => {
+        let sql = 'DELETE FROM project WHERE id = ?'
+        db.query(sql, [req.params.memberId], (err, response) => {
+            if (err) throw err
+            res.json({message: 'Delete success!'})
+        })
+    }
 }

@@ -11,6 +11,7 @@ module.exports = function(app) {
     app.route('/member/:memberId')
     .get(memberCtrl.detail)
     .put(memberCtrl.update)
+    .delete(memberCtrl.delete)
 
     app.route('/project')
     .get(projectCtrl.get)
@@ -19,4 +20,5 @@ module.exports = function(app) {
     app.route('/project/:projectId')
     .get(projectCtrl.detail)
     .put(projectCtrl.update)
+    .delete(projectCtrl.delete)
 };

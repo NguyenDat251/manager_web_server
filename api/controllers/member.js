@@ -6,7 +6,8 @@ const db = require('../mysql')
 
 module.exports = {
     get: (req, res) => {
-        let sql = 'SELECT * FROM member'
+        //let sql = 'SELECT M.*, P.name as ProjectName FROM member M, project P where M.projectID = P.id'
+        let sql = 'SELECT M.*, P.name as ProjectName FROM member M left join project P on M.projectID = P.id'
         db.query(sql, (err, response) => {
             if (err) throw err
             res.json(response)
@@ -36,4 +37,11 @@ module.exports = {
             res.json({message: 'Update success!'})
         })
     },
+    delete: (req, res) => {
+        let sql = 'DELETE FROM member WHERE id = ?'
+        db.query(sql, [req.params.memberId], (err, response) => {
+            if (err) throw err
+            res.json({message: 'Delete success!'})
+        })
+    }
 }
