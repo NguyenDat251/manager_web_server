@@ -1,3 +1,5 @@
+CREATE DATABASE MANAGER;
+
 CREATE TABLE `member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -22,3 +24,14 @@ INSERT INTO `member` VALUES ('9', 'Dat 3', '0343244644', '2020-01-01', 9);
 INSERT INTO `member` VALUES ('10', 'Dat 1', '0343244644', '2020-01-01', 10);
 INSERT INTO `member` VALUES ('11', 'Dat 2', '0343244644', '2020-01-01', 11);
 INSERT INTO `member` VALUES ('12', 'Dat 3', '0343244644', '2020-01-01', 12);
+
+CREATE TABLE `project` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) ,
+  `description` varchar(255) ,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+INSERT INTO `project` VALUES ('1', 'project 1', 'abcaaaaaaaaaaaaaa');
+INSERT INTO `project` VALUES ('2', 'project 2', 'abcaaaaaaaaaaaaaa');
+INSERT INTO `project` VALUES ('3', 'project 3', 'abcaaaaaaaaaaaaaa');
