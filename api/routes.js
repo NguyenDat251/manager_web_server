@@ -5,4 +5,5 @@ module.exports = function(app) {
   // todoList Routes
   app.route('/member')
     .get(memberCtrl.get)
+    .post(memberCtrl.add);
 };

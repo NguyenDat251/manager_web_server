@@ -12,5 +12,12 @@ module.exports = {
             res.json(response)
         })
     },
-    
+    add: (req, res) => {
+        let data = req.body;
+        let sql = 'INSERT INTO member SET ?'
+        db.query(sql, [data], (err, response) => {
+            if (err) throw err
+            res.json({message: 'Insert success!'})
+        })
+    },
 }
