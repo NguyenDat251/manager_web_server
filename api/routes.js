@@ -6,4 +6,7 @@ module.exports = function(app) {
   app.route('/member')
     .get(memberCtrl.get)
     .post(memberCtrl.add);
+
+    app.route('/member/:memberId')
+    .get(memberCtrl.detail)
 };

@@ -20,4 +20,11 @@ module.exports = {
             res.json({message: 'Insert success!'})
         })
     },
+    detail: (req, res) => {
+        let sql = 'SELECT * FROM member WHERE id = ?'
+        db.query(sql, [req.params.memberId], (err, response) => {
+            if (err) throw err
+            res.json(response[0])
+        })
+    }
 }
