@@ -1,6 +1,7 @@
 'use strict';
 module.exports = function(app) {
   let memberCtrl = require('./controllers/member');
+  let projectCtrl = require('./controllers/project')
 
   // todoList Routes
   app.route('/member')
@@ -9,4 +10,13 @@ module.exports = function(app) {
 
     app.route('/member/:memberId')
     .get(memberCtrl.detail)
+    .put(memberCtrl.update)
+
+    app.route('/project')
+    .get(projectCtrl.get)
+    .post(projectCtrl.add);
+
+    app.route('/project/:projectId')
+    .get(projectCtrl.detail)
+    .put(projectCtrl.update)
 };
